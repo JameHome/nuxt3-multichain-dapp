@@ -35,11 +35,11 @@
 // const config = useRuntimeConfig()Connection 
 // const projectId = config.public.projectId || ''
 // const globalStore = useGlobalStore()
-const solana = useSolana()
+// const solana = useSolana()
 
-onMounted(async () => {
-  solana.getWallet()
-})
+// onMounted(async () => {
+//   solana.getWallet()
+// })
 // eip155:1 1
 // if (import.meta.client) {
 

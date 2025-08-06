@@ -7,7 +7,6 @@ export default defineNuxtConfig({
   },
   routeRules: {
   },
-  spaLoadingTemplate: true, // 启用 SPA 加载模板
   compatibilityDate: '2025-05-15',
   modules: [
     '@pinia/nuxt',
@@ -41,7 +40,11 @@ export default defineNuxtConfig({
 
   // Vite 配置
   vite: {
+    esbuild: {
+      target: "esnext",
+    },
     build: {
+      target: "esnext",
       sourcemap: false // 禁用 sourcemap 以避免警告
     },
     css: {
@@ -51,8 +54,12 @@ export default defineNuxtConfig({
       // noExternal: ['@solana/web3.js', 'jayson']
     },
     optimizeDeps: {
+      esbuildOptions: {
+        target: "esnext",
+      },
       // exclude: ['@solana/web3.js'],
       include: [
+        "@coral-xyz/anchor",
         '@solana/web3.js',
         '@solana/wallet-adapter-base',
         'eventemitter3', '@solana/wallet-adapter-phantom',
@@ -62,6 +69,9 @@ export default defineNuxtConfig({
         'borsh',
         'jayson'
       ]
+    },
+    define: {
+      "process.env.BROWSER": true,
     }
   },
 
@@ -69,16 +79,16 @@ export default defineNuxtConfig({
   build: {
     transpile: [
       '@headlessui/vue',
-      '@solana/web3.js',
-      '@solana/wallet-adapter-base',
-      '@solana/wallet-adapter-vue',
-      '@solana/wallet-adapter-wallets',
-      '@solana/wallet-adapter-phantom',
-      '@solana/wallet-adapter-bitkeep',
-      '@solana/wallet-adapter-bitpie',
-      '@solana/wallet-adapter-clover',
-      '@solana/wallet-adapter-avana',
-      '@solana/wallet-adapter-alpha'
+      // '@solana/web3.js',
+      // '@solana/wallet-adapter-base',
+      // '@solana/wallet-adapter-vue',
+      // '@solana/wallet-adapter-wallets',
+      // '@solana/wallet-adapter-phantom',
+      // '@solana/wallet-adapter-bitkeep',
+      // '@solana/wallet-adapter-bitpie',
+      // '@solana/wallet-adapter-clover',
+      // '@solana/wallet-adapter-avana',
+      // '@solana/wallet-adapter-alpha'
     ], // 转译可能有问题的依赖
   },
 

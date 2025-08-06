@@ -14,7 +14,7 @@ import { useConnect, useSignMessage } from '@wagmi/vue'
 import { injected } from '@wagmi/connectors'
 import { useConfig } from '@wagmi/vue'
 import { useAccount } from '@wagmi/vue'
-const solana = useSolana()
+// const solana = useSolana()
 // 确保在客户端使用 Buffer
 const accountData = useAccount()
 const config = useConfig()
@@ -53,11 +53,11 @@ const connectSolanaHandle = async () => {
   // 这里可以使用 solana-wallets-vue 或其他库来连接 Solana 钱包
 }
 const connectSol = () => {
-  solana.connect()
+  // solana.connect()
 }
 
 const disconnectSol = () => {
-  solana.disconnect()
+  // solana.disconnect()
 }
 
 </script>
